@@ -1,15 +1,15 @@
-import { OpenAI } from "langchain/llms/openai";
-import { PromptTemplate } from "langchain/prompts";
-import { LLMChain } from "langchain/chains";
-import dotenv from "dotenv";
+import { OpenAI } from 'langchain/llms/openai';
+import { PromptTemplate } from 'langchain/prompts';
+import { LLMChain } from 'langchain/chains';
+import dotenv from 'dotenv';
 
 dotenv.config();
 
 const template =
-  "What would be a good company name for a company that makes {product}";
+  'What would be a good company name for a company that makes {product}';
 const promptTemplate = new PromptTemplate({
   template,
-  inputVariables: ["product"],
+  inputVariables: ['product'],
 });
 
 const model = new OpenAI({
@@ -22,6 +22,6 @@ const chain = new LLMChain({
   prompt: promptTemplate,
 });
 
-const res = await chain.call({ product: "cars" });
+const res = await chain.call({ product: 'cars' });
 
 console.log(res);

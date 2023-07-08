@@ -1,7 +1,7 @@
-import { OpenAI } from "langchain/llms/openai";
-import { BufferMemory } from "langchain/memory";
-import { ConversationChain } from "langchain/chains";
-import dotenv from "dotenv";
+import { OpenAI } from 'langchain/llms/openai';
+import { BufferMemory } from 'langchain/memory';
+import { ConversationChain } from 'langchain/chains';
+import dotenv from 'dotenv';
 
 dotenv.config();
 
@@ -16,8 +16,8 @@ const chain = new ConversationChain({
   memory: memory,
 });
 
-const res1 = await chain.call({ input: "Hello, I am Kris" });
+const res1 = await chain.call({ input: 'Hello, I am Kris' });
 console.log(res1);
 
-const res2 = await chain.call({ input: "What is my name?" });
+const res2 = await chain.call({ input: 'What is my name?' });
 console.log(res2);

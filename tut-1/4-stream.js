@@ -1,5 +1,5 @@
-import { OpenAI } from "langchain/llms/openai";
-import dotenv from "dotenv";
+import { OpenAI } from 'langchain/llms/openai';
+import dotenv from 'dotenv';
 
 dotenv.config();
 
@@ -14,4 +14,4 @@ const model = new OpenAI({
   ],
 });
 
-await model.call("Write a song about sparkling water");
+await model.call('Write a song about sparkling water');

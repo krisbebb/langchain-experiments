@@ -1,8 +1,8 @@
-import { OpenAI } from "langchain/llms/openai";
-import { SerpAPI } from "langchain/tools";
-import { Calculator } from "langchain/tools/calculator";
-import { initializeAgentExecutorWithOptions } from "langchain/agents";
-import dotenv from "dotenv";
+import { OpenAI } from 'langchain/llms/openai';
+import { SerpAPI } from 'langchain/tools';
+import { Calculator } from 'langchain/tools/calculator';
+import { initializeAgentExecutorWithOptions } from 'langchain/agents';
+import dotenv from 'dotenv';
 
 dotenv.config();
 
@@ -11,7 +11,7 @@ const model = new OpenAI({
 });
 
 const tools = [
-  new SerpAPI(process.env.SERPAPI_API_KEY, { hl: "en", gl: "us" }), // 3rd party api for searching google
+  new SerpAPI(process.env.SERPAPI_API_KEY, { hl: 'en', gl: 'us' }), // 3rd party api for searching google
   new Calculator(),
 ];
 
@@ -23,11 +23,11 @@ const tools = [
 // If you have a complex task that requires many steps and you're interested in experimenting with a new type of agent, try the Plan-and-Execute agent.
 
 const executor = await initializeAgentExecutorWithOptions(tools, model, {
-  agentType: "zero-shot-react-description",
+  agentType: 'zero-shot-react-description',
   verbose: true, // useful for debugging
 });
 
-console.log("Loaded the agent!");
+console.log('Loaded the agent!');
 
 const res = await executor.call({
   input:
