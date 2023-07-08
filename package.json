@@ -14,5 +14,8 @@
     "dotenv": "^16.3.1",
     "langchain": "^0.0.102",
     "serpapi": "^1.1.1"
+  },
+  "devDependencies": {
+    "eslint": "^8.44.0"
   }
 }
