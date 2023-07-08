@@ -1,4 +1,4 @@
-# langchain-js-tut-1
+# langchain-experiments
 
 ## Requirements
 
