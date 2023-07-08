@@ -7,13 +7,12 @@ import {
   INPUT_VARIABLE_SUBJECT,
   INPUT_VARIABLE_YEAR,
   PROMPT_GENERATE_TOPIC_UNITS_LESSONS,
-  TEMPLATE_INQUISITIVE_TEACHER_AU,
+  TEMPLATE_INQUISITIVE_TEACHER_AU_LESSON_STRUCTURE,
 } from './prompt.constants.js';
 
 dotenv.config();
 
-const template =
-  TEMPLATE_INQUISITIVE_TEACHER_AU + PROMPT_GENERATE_TOPIC_UNITS_LESSONS;
+const template = `${TEMPLATE_INQUISITIVE_TEACHER_AU_LESSON_STRUCTURE} ${PROMPT_GENERATE_TOPIC_UNITS_LESSONS}`;
 
 const promptTemplate = new PromptTemplate({
   template,
@@ -21,8 +20,9 @@ const promptTemplate = new PromptTemplate({
 });
 
 const model = new OpenAI({
-  temperature: 0.9, // from 0 to 1, 1 being most creative
+  temperature: 0, // from 0 to 1, 1 being most creative
   verbose: true, // optional but useful for debugging
+  maxTokens: 1024,
 });
 
 const chain = new LLMChain({
