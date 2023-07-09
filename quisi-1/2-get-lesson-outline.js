@@ -1,11 +1,12 @@
+import dotenv from 'dotenv';
 import { OpenAI } from 'langchain';
 import { PromptTemplate, PipelinePromptTemplate } from 'langchain/prompts';
-import dotenv from 'dotenv';
 
 import {
   EXAMPLE_SCIENCE_LESSON_US,
   TEMPLATE_INQUISITIVE_TEACHER_US,
 } from './prompt.constants.js';
+import { writeToFileWithTimestamp } from '../utils/utils.js';
 
 dotenv.config();
 
@@ -58,5 +59,7 @@ const formattedPrompt = await composedPrompt.format({
 });
 
 const res = await model.call(formattedPrompt);
+
+writeToFileWithTimestamp(res, 'get-lesson-outline');
 
 console.log(res);

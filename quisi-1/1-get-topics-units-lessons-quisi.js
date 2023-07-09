@@ -1,18 +1,18 @@
+import dotenv from 'dotenv';
 import { OpenAI } from 'langchain/llms/openai';
 import { PromptTemplate } from 'langchain/prompts';
 import { LLMChain } from 'langchain/chains';
-import dotenv from 'dotenv';
 
 import {
   INPUT_VARIABLE_SUBJECT,
   INPUT_VARIABLE_YEAR,
-  PROMPT_GENERATE_TOPIC_UNITS_LESSONS,
-  TEMPLATE_INQUISITIVE_TEACHER_AU_LESSON_STRUCTURE,
+  TEMPLATE_INQUISITIVE_TEACHER_AU,
 } from './prompt.constants.js';
+import { writeToFileWithTimestamp } from '../utils/utils.js';
 
 dotenv.config();
 
-const template = `${TEMPLATE_INQUISITIVE_TEACHER_AU_LESSON_STRUCTURE} ${PROMPT_GENERATE_TOPIC_UNITS_LESSONS}`;
+const template = TEMPLATE_INQUISITIVE_TEACHER_AU;
 
 const promptTemplate = new PromptTemplate({
   template,
@@ -34,5 +34,7 @@ const res = await chain.call({
   subject: 'Maths',
   year: 'Year 1',
 });
+
+writeToFileWithTimestamp(res.text, 'get-topics-units-lessons');
 
 console.log(res);
