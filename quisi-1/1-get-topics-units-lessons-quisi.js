@@ -1,13 +1,14 @@
+import dotenv from 'dotenv';
 import { OpenAI } from 'langchain/llms/openai';
 import { PromptTemplate } from 'langchain/prompts';
 import { LLMChain } from 'langchain/chains';
-import dotenv from 'dotenv';
 
 import {
   INPUT_VARIABLE_SUBJECT,
   INPUT_VARIABLE_YEAR,
   TEMPLATE_INQUISITIVE_TEACHER_AU,
 } from './prompt.constants.js';
+import { writeToFileWithTimestamp } from '../utils/utils.js';
 
 dotenv.config();
 
@@ -33,5 +34,7 @@ const res = await chain.call({
   subject: 'Maths',
   year: 'Year 1',
 });
+
+writeToFileWithTimestamp(res.text, 'get-topics-units-lessons');
 
 console.log(res);
