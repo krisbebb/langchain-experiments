@@ -46,3 +46,26 @@ Learning Targets: Students will be able to: - Identify living things and nonlivi
 Lesson Materials: Colored pencils or crayons for each student. Modeling clay or modeling dough - a small amount per student.
 Teacher Reading: Background Science How do we decide if something is alive? Living things grow, change, and reproduce, among other characteristics. To do those things, living things need food and water. In later grades, students will learn that plants use sunlight to make their own food, but at this level they just need to understand that plants need sunlight to stay alive and grow. Animals depend on plants and other animals for food. Some animals, such as pandas and koalas, eat one food almost exclusively, while other animals eat a wide variety of foods. Animals that eat only other animals are called carnivores, animals that eat only plants are called herbivores, and animals that eat both plants and other animals are called omnivores. All animals have a mouth—a body part that is specialized for eating and drinking in whatever way they do.
 Lesson introduction: Show the students the image of the bird and ask: What is this bird doing? It is likely students will correctly answer “drinking.” Ask whether anyone has watched a bird having a drink. If some students own a pet bird, ask them to share their experience of caring for the bird and providing it with water.`;
+
+// Here are some examples.
+// Force
+// Reflect
+// Matter
+// Model
+// Flexibility
+// Fruit
+// Given the word '{word}', provide a simple English and Spanish definition suitable for a primary school student, identify the lexical category (noun, verb, etc.), provide a sentence containing a word, and suggest a description of an image that could represent the word and its definition.
+// Changed the prompt slightly to give us the spanish definition too (something needed in the US)
+
+// DEMO GITHUB COPILOT HERE
+export const VOCAB_WORD_LIST = [
+  'Force',
+  'Reflect',
+  'Matter',
+  'Model',
+  'Flexibility',
+  'Fruit',
+];
+
+// AND HERE
+export const PROMPT_GENERATE_VOCAB_WORD = `Given the word '{word}', provide a simple English and Spanish definition suitable for a primary school student, identify the lexical category (noun, verb, etc.), provide a sentence containing a word, and suggest a description of an image that could represent the word and its definition.`;
