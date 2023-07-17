@@ -7,12 +7,13 @@ import {
   INPUT_VARIABLE_SUBJECT,
   INPUT_VARIABLE_YEAR,
   TEMPLATE_INQUISITIVE_TEACHER_AU,
+  PROMPT_GENERATE_TOPIC_UNITS_LESSONS,
 } from './prompt.constants.js';
 import { writeToFileWithTimestamp } from '../utils/utils.js';
 
 dotenv.config();
 
-const template = TEMPLATE_INQUISITIVE_TEACHER_AU;
+const template = `${TEMPLATE_INQUISITIVE_TEACHER_AU} ${PROMPT_GENERATE_TOPIC_UNITS_LESSONS}`;
 
 const promptTemplate = new PromptTemplate({
   template,

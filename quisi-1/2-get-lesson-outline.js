@@ -5,6 +5,7 @@ import { PromptTemplate, PipelinePromptTemplate } from 'langchain/prompts';
 import {
   EXAMPLE_SCIENCE_LESSON_US,
   TEMPLATE_INQUISITIVE_TEACHER_US,
+  TEMPLATE_LESSON_OUTLINE_AU,
 } from './prompt.constants.js';
 import { writeToFileWithTimestamp } from '../utils/utils.js';
 
@@ -52,7 +53,7 @@ const composedPrompt = new PipelinePromptTemplate({
 });
 
 const formattedPrompt = await composedPrompt.format({
-  person: TEMPLATE_INQUISITIVE_TEACHER_US,
+  person: `${TEMPLATE_INQUISITIVE_TEACHER_US} ${TEMPLATE_LESSON_OUTLINE_AU}`,
   example_q: 'Generate a lesson outline for "Science" and "Year 5"',
   example_a: EXAMPLE_SCIENCE_LESSON_US,
   input: 'Generate a lesson outline for "Maths" and "Year 1"',
