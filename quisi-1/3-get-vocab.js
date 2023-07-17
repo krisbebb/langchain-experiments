@@ -29,10 +29,17 @@ const chain = new LLMChain({
   prompt: promptTemplate,
 });
 
-VOCAB_WORD_LIST.forEach(async word => {
-  const res = await chain.call({
-    word,
-  });
-  console.log(res);
-  writeToFileWithTimestamp(res.text, `vocab-${word}`);
-});
+const delay = ms => new Promise(resolve => setTimeout(resolve, ms));
+
+async function processWords() {
+  for (let i = 0; i < VOCAB_WORD_LIST.length; i++) {
+    await delay(500); // half a second interval between each call
+    const res = await chain.call({
+      word: VOCAB_WORD_LIST[i],
+    });
+    console.log(res);
+    writeToFileWithTimestamp(res.text, `vocab-${VOCAB_WORD_LIST[i]}`);
+  }
+}
+
+processWords();
