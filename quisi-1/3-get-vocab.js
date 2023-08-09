@@ -19,6 +19,7 @@ const promptTemplate = new PromptTemplate({
 });
 
 const model = new OpenAI({
+  modelName: 'gpt-3.5-turbo',
   temperature: 0, // from 0 to 1, 1 being most creative
   verbose: true, // optional but useful for debugging
   maxTokens: 1024,
